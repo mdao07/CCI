@@ -16,6 +16,7 @@ import java.util.Arrays;
 public class Ex3 {
 
     private static final char [] space = {'%', '2', '0'};
+
     public static void URLify (char [] text) {
         if (text == null) {
             return;
@@ -24,7 +25,7 @@ public class Ex3 {
         int id1, id2;
         id1 = id2 = text.length - 1;
 
-        for (--id1; id1 != id2 && text[id1] == ' '; --id1);
+        for (--id1; id1 != id2 && Character.isWhitespace(text[id1]); --id1);
 
         for (; id1 >= 0; --id1) {
             if (text[id1] == ' ') {
@@ -36,13 +37,5 @@ public class Ex3 {
                 --id2;
             }
         }
-    }
-
-    public static void main (String [] args) {
-        var arr = "Mr John Smith    ".toCharArray();
-
-        System.out.println(Arrays.toString(arr));
-        URLify(arr);
-        System.out.println(Arrays.toString(arr));
     }
 }

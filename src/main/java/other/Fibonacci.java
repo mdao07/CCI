@@ -2,13 +2,9 @@ package other;
 
 import java.util.Arrays;
 
-public class Fibinacci {
+public class Fibonacci {
 
     public static int[] exec(int n) {
-        //if (n < 2) {
-
-        //}
-
         int arr[] = new int[n];
         arr[0] = 0;
         arr[1] = 1;

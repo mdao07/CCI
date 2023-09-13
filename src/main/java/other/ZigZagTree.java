@@ -1,7 +1,6 @@
 package other;
 
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class ZigZagTree {
@@ -23,15 +22,15 @@ public class ZigZagTree {
         }
     }
 
-    public static void zigZagTree(Node root) {
+    // RL - LR
+    public static void zigZagRL_LR(Node root) {
         Stack<Node> s1 = new Stack<>();
         Stack<Node> s2 = new Stack<>();
-
-        s1.push(root);
         Node curNode;
 
-        while(!s1.isEmpty()) {
+        s1.push(root);
 
+        while(!s1.isEmpty()) {
             do {
                 curNode = s1.pop();
                 System.out.print(curNode.data + " ");
@@ -45,9 +44,7 @@ public class ZigZagTree {
                 }
             } while(!s1.isEmpty());
 
-            System.out.println();
-
-            while(!s2.isEmpty()) {
+            while (!s2.isEmpty()) {
                 curNode = s2.pop();
                 System.out.print(curNode.data + " ");
 
@@ -59,10 +56,43 @@ public class ZigZagTree {
                     s1.push(curNode.right);
                 }
             }
-
-            System.out.println();
         }
+    }
 
+    public static void zigZagLR_RL(Node root) {
+        Stack<Node> s1 = new Stack<>();
+        Stack<Node> s2 = new Stack<>();
+        Node curNode;
+
+        s1.push(root);
+
+        while (!s1.isEmpty()) {
+            do {
+                curNode = s1.pop();
+                System.out.print(curNode.data + " ");
+
+                if (curNode.left != null) {
+                    s2.push(curNode.left);
+                }
+
+                if (curNode.right != null) {
+                    s2.push(curNode.right);
+                }
+            } while(!s1.isEmpty());
+
+            while (!s2.isEmpty()) {
+                curNode = s2.pop();
+                System.out.print(curNode.data + " ");
+
+                if (curNode.right != null) {
+                    s1.push(curNode.right);
+                }
+
+                if (curNode.left != null) {
+                    s1.push(curNode.left);
+                }
+            }
+        }
     }
 
     public static void main(String [] args) {
@@ -87,6 +117,7 @@ public class ZigZagTree {
 
         Node n11 = new Node(1, n21, n22);
 
-        zigZagTree(n11);
+        //zigZagRL_LR(n11);
+        zigZagLR_RL(n11);
     }
 }

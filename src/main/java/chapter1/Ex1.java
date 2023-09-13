@@ -42,11 +42,4 @@ public class Ex1 {
 
         return true;
     }
-
-    public static void main (String [] args) {
-        String s1 = "abcdeff";
-
-        System.out.println(isUniqueA(s1));
-        System.out.println(isUniqueB(s1));
-    }
 }

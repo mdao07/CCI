@@ -62,12 +62,4 @@ public class Ex2 {
 
         return true;
     }
-
-    public static void main (String [] args) {
-        String s1 = "abcdef";
-        String s2 = "defabc";
-
-        System.out.println(isPermutationA(s1, s2));
-        System.out.println(isPermutationB(s1, s2));
-    }
 }

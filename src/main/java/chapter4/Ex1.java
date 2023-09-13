@@ -12,11 +12,11 @@ import java.util.Set;
 public class Ex1 {
 
     private static boolean search(SimpleVertex v1, SimpleVertex v2) {
-
+        return false;
     }
 
     public static boolean havePath(SimpleGraph graph, int n1, int n2) {
-
+        return false;
     }
 
     public static void main() {
