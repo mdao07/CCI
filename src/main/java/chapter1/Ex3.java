@@ -1,7 +1,5 @@
 package chapter1;
 
-import java.util.Arrays;
-
 /**
  * URLify: Write a method to replace all spaces in a string with '%20'. You may assume that the string
  * has sufficient space at the end to hold the additional characters, and that you are given the "true"
@@ -25,7 +23,11 @@ public class Ex3 {
         int id1, id2;
         id1 = id2 = text.length - 1;
 
-        for (--id1; id1 != id2 && Character.isWhitespace(text[id1]); --id1);
+        for (; Character.isWhitespace(text[id1]); --id1);
+
+        if (id1 == id2) {
+            return;
+        }
 
         for (; id1 >= 0; --id1) {
             if (text[id1] == ' ') {

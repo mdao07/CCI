@@ -2,7 +2,6 @@ package chapter1;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Set;
 
 /**
  * Palindrome Permutation: Given a string, write a function to check if it is a permutation of a palindrome.
@@ -16,12 +15,12 @@ import java.util.Set;
  */
 public class Ex4 {
 
-    public static boolean isPalindromePermutation(String word) {
-        if (word == null) {
+    public static boolean isPalindromePermutation1(String text) {
+        if (text == null) {
             return false;
         }
 
-        String trimmed = word.replaceAll(" |\n|\t", "");
+        String trimmed = text.toLowerCase().replaceAll("\s+", "");
         var hm = new HashMap<Character, Integer>();
         trimmed.chars().forEach(i -> hm.compute((char)i, (k, v) -> v == null ? 1 : v + 1));
         long oddsCount = hm.values().stream()
@@ -31,12 +30,12 @@ public class Ex4 {
         return oddsCount <= 1;
     }
 
-    public static boolean isPalindromePermutation2(String word) {
-        if (word == null) {
+    public static boolean isPalindromePermutation2(String text) {
+        if (text == null) {
             return false;
         }
 
-        String trimmed = word.replaceAll(" |\n|\t", "");
+        String trimmed = text.toLowerCase().replaceAll("\s+", "");
         var chars = trimmed.toCharArray();
         Arrays.sort(chars);
 
@@ -61,11 +60,4 @@ public class Ex4 {
 
         return true;
     }
-
-    public static void main(String [] args) {
-        boolean res = isPalindromePermutation2("tacooo cat   ");
-
-        System.out.println(res);
-    }
-
 }

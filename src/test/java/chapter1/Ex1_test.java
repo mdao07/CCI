@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static chapter1.Ex1.isUniqueA;
 import static chapter1.Ex1.isUniqueB;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

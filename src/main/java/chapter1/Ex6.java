@@ -10,36 +10,30 @@ package chapter1;
  */
 public class Ex6 {
 
-    public static String compress(String s1) {
-        if (s1 == null) {
-            return s1;
+    public static String compress(String text) {
+        if (text == null) {
+            return text;
         }
 
-        final int length = s1.length();
+        final int length = text.length();
         var sb = new StringBuilder();
         char c;
         int prevI;
 
         for (int i = 0; i < length;) {
             prevI = i;
-            c = s1.charAt(i);
+            c = text.charAt(i);
 
-            for (++i; i < length && s1.charAt(i) == c; ++i);
+            for (++i; i < length && text.charAt(i) == c; ++i);
 
             sb.append(c);
             sb.append(i - prevI);
         }
 
-        if (sb.length() >= s1.length()) {
-            return s1;
+        if (sb.length() >= text.length()) {
+            return text;
         }
 
         return sb.toString();
-    }
-
-    public static void main(String [] args) {
-        String s1 = "aabcccaaaaaaaaaaaaaaaaaaaaadccaaa";
-
-        System.out.println(compress(s1));
     }
 }

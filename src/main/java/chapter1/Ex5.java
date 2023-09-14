@@ -56,7 +56,7 @@ public class Ex5 {
             return false;
         }
 
-        int comp = Math.abs(s1.length() - s2.length());
+        int comp = s1.length() - s2.length();
 
         return switch (comp) {
             case -1 -> insert(s2, s1);
@@ -64,12 +64,5 @@ public class Ex5 {
             case 1 -> insert(s1, s2);
             default -> false;
         };
-    }
-
-    public static void main(String[] args) {
-        String s1 = "pale";
-        String s2 = "bales";
-
-        System.out.println(isOneWay(s1, s2));
     }
 }
